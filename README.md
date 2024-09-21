@@ -8,3 +8,17 @@ kubectl apply -f k8s-wordpress/wp-deploy/wordpress-namespace.yaml
 kubectl apply -f k8s-wordpress/wp-deploy/.
 kubectl get pod,deploy,svc,pvc,pv,ns -n wp
 ~~~
+#### How to Browseing The WordPress Site
+
+#### http://k8sClasterIP:31000
+<details>
+Verifying the WordPress Services
+~~~
+kubectl get svc wordpress -n wp
+~~~
+We can see like this:
+> NAME        TYPE       CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+> wordpress   NodePort   10.101.227.25    <none>        80:31000/TCP     11m
+
+So from this verifying Our services are Exposed on Port:31000
+</details>
