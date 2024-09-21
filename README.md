@@ -28,7 +28,8 @@ So from this verifying Our services are Exposed on Port:31000
 #### Delete the WordPress Deploy
 Just Delete WP-MYSQL Deployment
 ~~~
-kubectl delete deploy wordpress,mysql -n wp
+kubectl delete deploy wordpress -n wp
+kubectl delete deploy mysql -n wp
 ~~~
 
 #### Delete the WordPress Deploy All
