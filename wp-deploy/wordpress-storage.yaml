@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: wp-nfs-pv
-  namespace: wp
+  name: wp-nfs-pv-test
+  namespace: wp-test
 spec:
   capacity:
     storage: 10Gi
@@ -10,21 +10,34 @@ spec:
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Recycle
-  storageClassName: wp-nfs
+  storageClassName: wp-nfs-test
   mountOptions:
     - hard
     - nfsvers=4.1
   nfs:
-    path: /nfs-share/kubernetes/k8s-wordpress
+    path: /nfs-share/kubernetes/k8s-wp-data
     server: 192.168.0.96
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: wp-nfs-pvc
-  namespace: wp
+  namespace: wp-test
 spec:
-  storageClassName: wp-nfs
+  storageClassName: wp-nfs-test
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wpmysql-nfs-pvc
+  namespace: wp-test
+spec:
+  storageClassName: wp-nfs-test
   accessModes:
     - ReadWriteMany
   resources:

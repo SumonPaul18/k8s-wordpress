@@ -18,6 +18,9 @@ spec:
           image: wordpress:latest
           ports:
             - containerPort: 80
+          volumeMounts:
+            - name: wp-nfs-pv
+              mountPath: /var/www/html
           env:
             - name: WORDPRESS_DB_HOST
               value: mysql
@@ -27,3 +30,8 @@ spec:
               value: db_user
             - name: WORDPRESS_DB_PASSWORD
               value: db_password
+
+      volumes:
+        - name: wp-nfs-pv
+          persistentVolumeClaim:
+            claimName: wp-nfs-pvc
