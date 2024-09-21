@@ -23,6 +23,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: wp-nfs-pvc
   namespace: wp-test
+  labels:
+        app: wordpress
 spec:
   storageClassName: wp-nfs-test
   accessModes:
@@ -36,6 +38,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: wpmysql-nfs-pvc
   namespace: wp-test
+  labels:
+        app: mysql
 spec:
   storageClassName: wp-nfs-test
   accessModes:
