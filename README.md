@@ -10,7 +10,7 @@ kubectl get pod,deploy,svc,pvc,pv,ns -n wp-test
 ~~~
 #### How to Browseing The WordPress Site
 
-#### http://Your-k8sClaster-IP:31000
+#### http://Your-k8sClaster-IP:31100
 
 <details>
  <summary> <b> How to Show WordPress Exposed Port: </summary> </b>
@@ -20,9 +20,9 @@ Verifying the WordPress Services
 kubectl get svc wordpress -n wp-test
 ~~~
 We can see like this:
-> wordpress   NodePort   10.101.227.25    <none>        80:31000/TCP     11m
+> wp-svc-test   NodePort   10.101.227.25    <none>        80:31100/TCP     11m
 
-So from this verifying Our services are Exposed on Port:31000
+So from this verifying Our services are Exposed on Port:31100
 </details>
 
 #### Delete the WordPress Deploy
