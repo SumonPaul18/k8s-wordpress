@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    run: wp
+    app: wp
   name: wp
 spec:
   containers:
